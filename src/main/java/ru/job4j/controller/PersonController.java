@@ -6,7 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.domain.Person;
 import ru.job4j.repository.PersonRepository;
+
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/person")
@@ -14,7 +16,7 @@ public class PersonController {
     @Autowired
     private final PersonRepository persons;
 
-     public PersonController(final PersonRepository persons) {
+    public PersonController(final PersonRepository persons) {
         this.persons = persons;
     }
 
