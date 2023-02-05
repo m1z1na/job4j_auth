@@ -19,7 +19,11 @@ public class PersonController {
     public PersonController(final PersonRepository persons) {
         this.persons = persons;
     }
-
+    @GetMapping("/test")
+    public String findAldl()
+    {
+        return "test";
+    }
     @GetMapping("/")
     public List<Person> findAll() {
         return (List<Person>) this.persons.findAll();
