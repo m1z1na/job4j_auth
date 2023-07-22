@@ -67,9 +67,8 @@ public class PersonController {
     @PostMapping("/sign-up")
     public ResponseEntity<Person> signUp(@RequestBody Person person) {
         person.setPassword(encoder.encode(person.getPassword()));
-
-        var newPerson = personService.create(person);
-        if (newPerson != null) {
+        Person newPerson = personService.create(person);
+        if (newPerson == null) {
             return new ResponseEntity<Person>(new Person(), HttpStatus.CONFLICT);
         }
         return new ResponseEntity<Person>(
